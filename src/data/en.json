@@ -1,0 +1,16 @@
+{
+  "hero": {
+    "name": "Burak",
+    "title1": "Creative thinker",
+    "title2": "Minimalism lover",
+    "desc": "Hi, I'm Burak. I craft scalable, user-centric frontends."
+  },
+  "projects": {
+    "title": "Projects",
+    "list": [
+      { "title": "Pizza SPA", "desc": "SPA pizza ordering.", "tech": ["React","Axios","Cypress"], "github": "#", "url": "#", "image": "/app-example1.png" },
+      { "title": "Movie App", "desc": "Favorites with Redux.", "tech": ["React","Redux"], "github": "#", "url": "#", "image": "/app-example2.png" },
+      { "title": "Journey", "desc": "Personal blog.", "tech": ["React"], "github": "#", "url": "#", "image": "/app-example3.png" }
+    ]
+  }
+}

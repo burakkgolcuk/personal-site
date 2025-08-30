@@ -1,0 +1,46 @@
+import { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+
+export default function Contact() {
+  const [form, setForm] = useState({ name:"", email:"", message:"" });
+  const [loading, setLoading] = useState(false);
+  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.message) return toast.error("Lütfen tüm alanları doldurun.");
+    try {
+      setLoading(true);
+      const res = await axios.post("https://reqres.in/api/workintech", form);
+      if (res.status >= 200 && res.status < 300) {
+        toast.success("Mesaj iletildi!");
+        setForm({ name:"", email:"", message:"" });
+      } else {
+        toast.warn("Beklenmedik yanıt.");
+      }
+    } catch (err) {
+      toast.error("Gönderim sırasında hata.");
+      console.error(err);
+    } finally { setLoading(false); }
+  };
+
+  return (
+    <section id="contact" className="py-16 border-b" style={{ borderColor:'rgb(var(--border))' }}>
+      <div className="max-w-[1140px] mx-auto">
+        <h2 className="text-[48px] leading-[48px] font-semibold">Contact</h2>
+        <form onSubmit={onSubmit} className="mt-6 grid gap-4 max-w-xl">
+          <input name="name" value={form.name} onChange={onChange} placeholder="Ad Soyad"
+            className="px-3 py-2 rounded-xl border bg-transparent" style={{ borderColor:'rgb(var(--border))' }}/>
+          <input name="email" value={form.email} onChange={onChange} placeholder="E-posta"
+            className="px-3 py-2 rounded-xl border bg-transparent" style={{ borderColor:'rgb(var(--border))' }}/>
+          <textarea name="message" rows="4" value={form.message} onChange={onChange} placeholder="Mesaj"
+            className="px-3 py-2 rounded-xl border bg-transparent" style={{ borderColor:'rgb(var(--border))' }}/>
+          <button disabled={loading} className="btn btn-fill rounded-xl disabled:opacity-60">
+            {loading ? "Gönderiliyor…" : "Gönder"}
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+}

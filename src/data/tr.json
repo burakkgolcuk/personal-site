@@ -1,0 +1,16 @@
+{
+  "hero": {
+    "name": "Burak",
+    "title1": "Yaratıcı düşünür",
+    "title2": "Minimalizm aşığı",
+    "desc": "Merhaba, ben Burak. Ölçeklenebilir ve kullanıcı odaklı arayüzler geliştiriyorum."
+  },
+  "projects": {
+    "title": "Projects",
+    "list": [
+      { "title": "Teknolojik Yemekler", "desc": "SPA pizza siparişi.", "tech": ["React","Axios","Cypress"], "github": "#", "url": "#", "image": "/app-example1.png" },
+      { "title": "Film Uygulaması", "desc": "Redux ile favoriler.", "tech": ["React","Redux"], "github": "#", "url": "#", "image": "/app-example2.png" },
+      { "title": "Journey", "desc": "Kişisel günlük/blog.", "tech": ["React"], "github": "#", "url": "#", "image": "/app-example3.png" }
+    ]
+  }
+}
