@@ -4,8 +4,12 @@ const ThemeContext = createContext(null);
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
-    try { return localStorage.getItem("theme") || "light"; } catch { return "light"; }
-  });
+  try {
+    const saved = localStorage.getItem("theme");
+    if (saved) return saved;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  } catch { return "light"; }
+});
 
   useEffect(() => {
     try { localStorage.setItem("theme", theme); } catch {}

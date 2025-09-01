@@ -1,4 +1,6 @@
 {
+  "nav": { "skills": "Yetenekler", "projects": "Projeler", "hire": "İletişim" },
+  "buttons": { "hire": "Bana Ulaş", "github": "Github", "linkedin": "LinkedIn", "send": "Gönder", "sending": "Gönderiliyor…" },
   "hero": {
     "name": "Burak",
     "title1": "Yaratıcı düşünür",
@@ -6,11 +8,20 @@
     "desc": "Merhaba, ben Burak. Ölçeklenebilir ve kullanıcı odaklı arayüzler geliştiriyorum."
   },
   "projects": {
-    "title": "Projects",
+    "title": "Projeler",
     "list": [
       { "title": "Teknolojik Yemekler", "desc": "SPA pizza siparişi.", "tech": ["React","Axios","Cypress"], "github": "#", "url": "#", "image": "/app-example1.png" },
       { "title": "Film Uygulaması", "desc": "Redux ile favoriler.", "tech": ["React","Redux"], "github": "#", "url": "#", "image": "/app-example2.png" },
-      { "title": "Journey", "desc": "Kişisel günlük/blog.", "tech": ["React"], "github": "#", "url": "#", "image": "/app-example3.png" }
+      { "title": "Journey", "desc": "Kişisel blog.", "tech": ["React"], "github": "#", "url": "#", "image": "/app-example3.png" }
     ]
+  },
+  "contact": {
+    "title": "İletişim",
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "message": "Mesaj",
+    "success": "Mesaj iletildi!",
+    "error": "Gönderim sırasında hata.",
+    "unexpected": "Beklenmedik yanıt."
   }
 }

@@ -48,7 +48,24 @@ section { scroll-margin-top: 72px; }
     font-size: 18px;
     line-height: 1.75rem;
     font-weight: 500;
+    
   }
+  @layer base {
+  /* Tüm sayfada varsayılan metin/bgc */
+  body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--fg));
+  }
+  /* Form kontrolleri de metin rengini miras alsın */
+  input, select, textarea, button {
+    color: inherit;
+    background-color: transparent;
+  }
+  /* Placeholder'lar koyu temada da okunur olsun */
+  ::placeholder { color: rgb(var(--muted)); opacity: 1; }
+}
+
+  .container-1140 { @apply max-w-[1140px] mx-auto px-4 md:px-0; }
   .btn-fill{ background: rgb(var(--primary-strong)); color:#fff; }
   .btn-line{ background:#fff; border:1px solid rgb(var(--primary-strong)); color: rgb(var(--primary-strong)); }
   .pill{ background:#fff; border:1px solid rgb(var(--primary-strong)); border-radius:4px; padding:6px 18px 7px; line-height:14px; }

@@ -1,4 +1,6 @@
 {
+  "nav": { "skills": "Skills", "projects": "Projects", "hire": "Contact" },
+  "buttons": { "hire": "Hire me", "github": "Github", "linkedin": "LinkedIn", "send": "Send", "sending": "Sending…" },
   "hero": {
     "name": "Burak",
     "title1": "Creative thinker",
@@ -12,5 +14,14 @@
       { "title": "Movie App", "desc": "Favorites with Redux.", "tech": ["React","Redux"], "github": "#", "url": "#", "image": "/app-example2.png" },
       { "title": "Journey", "desc": "Personal blog.", "tech": ["React"], "github": "#", "url": "#", "image": "/app-example3.png" }
     ]
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Full name",
+    "email": "Email",
+    "message": "Message",
+    "success": "Message delivered!",
+    "error": "An error occurred.",
+    "unexpected": "Unexpected response."
   }
 }

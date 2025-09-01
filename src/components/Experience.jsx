@@ -1,7 +1,7 @@
 export default function Experience() {
   return (
     <section id="experience" className="py-16 border-b" style={{ borderColor:'rgb(var(--border))' }}>
-      <div className="max-w-[1140px] mx-auto">
+      <div className="container-1140">
         <h2 className="text-[36px] md:text-[48px] leading-[1] font-semibold">Experience</h2>
         <ol className="mt-6 relative border-s ps-6" style={{ borderColor:'rgb(var(--border))' }}>
           <li className="mb-8">
