@@ -12,7 +12,7 @@ const projects = [
     image: "/app-movies.png",
     tech: ["react", "redux", "axios"],
     github: "https://github.com/burakkgolcuk/witflix",
-    site: "",
+    site: "https://witflix-zeta.vercel.app/",
   },
   {
     id: "pizza",
@@ -24,7 +24,7 @@ const projects = [
     image: "/app-pizza.png",
     tech: ["react", "redux", "css"],
     github: "https://github.com/burakkgolcuk/yeni-repo",
-    site: "",
+    site: "https://teknolojik-yemekler-flame.vercel.app/order",
   },
   {
     id: "calc",
@@ -36,7 +36,7 @@ const projects = [
     image: "/app-calculator.png",
     tech: ["react", "reducer"],
     github: "https://github.com/burakkgolcuk/reducer-calculator",
-    site: "",
+    site: "reducer-calculator-orcin.vercel.app",
   },
 ];
 
