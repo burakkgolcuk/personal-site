@@ -3,6 +3,17 @@ import { useLang } from "../contexts/LangContext.jsx";
 
 const projects = [
   {
+  id: "portfolio",
+  title: "Kişisel Portföy",
+  desc: "Tasarıma birebir sadık, dark mode ve TR/EN destekli kişisel web sitem.",
+  image: "/image.png", // geçici görsel; istersen public/app-portfolio.png koy
+  tech: ["react", "tailwind", "context"],
+  github: "https://github.com/burakkgolcuk/personal-site",
+  site: "https://personal-site-xi-drab.vercel.app/"
+},
+
+  
+  {
     id: "witflix",
     title: { tr: "Witflix", en: "Witflix" },
     desc: {
@@ -24,7 +35,7 @@ const projects = [
     image: "/app-pizza.png",
     tech: ["react", "redux", "css"],
     github: "https://github.com/burakkgolcuk/yeni-repo",
-    site: "https://teknolojik-yemekler-flame.vercel.app/order",
+    site: "https://teknolojik-yemekler-flame.vercel.app/",
   },
   {
     id: "calc",
@@ -36,7 +47,7 @@ const projects = [
     image: "/app-calculator.png",
     tech: ["react", "reducer"],
     github: "https://github.com/burakkgolcuk/reducer-calculator",
-    site: "reducer-calculator-orcin.vercel.app",
+    site: "https://reducer-calculator-orcin.vercel.app/",
   },
 ];
 
