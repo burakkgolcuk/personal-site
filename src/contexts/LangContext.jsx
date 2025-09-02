@@ -14,6 +14,28 @@ const dict = {
     buttons: { hire: "Bana Ulaş", github: "Github", linkedin: "LinkedIn" },
     sections: { profile: "Profil", skills: "Yetenekler", projects: "Projeler" },
 
+    // ---- Skills (EKLENDİ) ----
+    skills: {
+      title: "Yetenekler",
+      items: {
+        js: {
+          title: "JavaScript",
+          desc:
+            "Modern JS ekosistemi, ES6+, modüler yapı, fetch/axios, asenkron akış ve temel test pratikleri.",
+        },
+        react: {
+          title: "React.js",
+          desc:
+            "Bileşen mimarisi, hook’lar, context/global state, performans iyileştirmeleri ve erişilebilirlik.",
+        },
+        node: {
+          title: "Node.js",
+          desc:
+            "REST API tasarımı, Express, basit doğrulama/ortalama, ortam değişkenleri ve deploy süreçleri.",
+        },
+      },
+    },
+
     // ---- Profile/About ----
     profile: {
       heading: "Profil",
@@ -24,9 +46,9 @@ const dict = {
         role: "Tercih Ettiği Rol",
       },
       values: {
-        birth: "24.03.1996",
-        city: "Ankara",
-        education: "Hacettepe Ünv. Biyoloji Lisans, 2016",
+        birth: "13.02.1992",
+        city: "Denizli",
+        education: "Pamukkale Ünv. Matematik Lisans, 2016",
         role: "Frontend, UI",
       },
     },
@@ -69,6 +91,28 @@ const dict = {
     buttons: { hire: "Hire me", github: "Github", linkedin: "LinkedIn" },
     sections: { profile: "Profile", skills: "Skills", projects: "Projects" },
 
+    // ---- Skills (ADDED) ----
+    skills: {
+      title: "Skills",
+      items: {
+        js: {
+          title: "JavaScript",
+          desc:
+            "Modern JS ecosystem, ES6+, modular code, fetch/axios, async flows and basic testing practices.",
+        },
+        react: {
+          title: "React.js",
+          desc:
+            "Component architecture, hooks, context/global state, performance tuning and accessibility.",
+        },
+        node: {
+          title: "Node.js",
+          desc:
+            "REST API design, Express, basic auth/middleware, environment variables and deployment.",
+        },
+      },
+    },
+
     profile: {
       heading: "Profile",
       labels: {
@@ -78,9 +122,9 @@ const dict = {
         role: "Preferred Role",
       },
       values: {
-        birth: "1996-03-24",
-        city: "Ankara",
-        education: "Hacettepe Univ. Biology BSc, 2016",
+        birth: "1992-02-13",
+        city: "Denizli",
+        education: "Pamukkale Univ. Mathematics BSc, 2016",
         role: "Frontend, UI",
       },
     },
@@ -113,7 +157,10 @@ const dict = {
 };
 
 export function LangProvider({ children }) {
-  const getInitial = () => localStorage.getItem("lang") || "tr";
+  const getInitial = () => (typeof window !== "undefined"
+    ? localStorage.getItem("lang") || "tr"
+    : "tr");
+
   const [lang, setLang] = useState(getInitial);
   useEffect(() => { localStorage.setItem("lang", lang); }, [lang]);
 
@@ -121,11 +168,13 @@ export function LangProvider({ children }) {
     const parts = path.split(".");
     let cur = dict[lang];
     for (const p of parts) cur = cur?.[p];
-    return cur ?? path;
+    return cur ?? path; // bulunamazsa anahtarın kendisini döndür
   };
 
   const value = useMemo(() => ({ lang, setLang, t }), [lang]);
   return <LangContext.Provider value={value}>{children}</LangContext.Provider>;
 }
 
-export function useLang() { return useContext(LangContext); }
+export function useLang() {
+  return useContext(LangContext);
+}
