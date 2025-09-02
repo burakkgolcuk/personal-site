@@ -1,4 +1,3 @@
-// src/components/Hero.jsx
 import { useLang } from "../contexts/LangContext.jsx";
 
 export default function Hero() {
@@ -6,39 +5,45 @@ export default function Hero() {
 
   return (
     <section id="home" className="mt-[48px] md:mt-[72px]">
-      <div className="container-1140 relative grid md:grid-cols-[596px_1fr] gap-8">
+      <div className="container-1140 grid md:grid-cols-[596px_1fr] gap-8 items-start">
         {/* Sol blok */}
         <div>
           {/* İsim çizgisi + ad */}
           <div className="flex items-center gap-3">
-            <span className="block w-[102px] h-[0px] border-t"
-                  style={{ borderColor: "rgb(var(--primary-strong))" }} />
-            <span className="text-[20px] leading-7 font-medium"
-                  style={{ color: "rgb(var(--primary))" }}>
+            <span
+              className="block w-[102px] h-px border-t"
+              style={{ borderColor: "rgb(var(--primary-strong))" }}
+            />
+            <span
+              className="text-[20px] leading-7 font-medium"
+              style={{ color: "rgb(var(--primary))" }}
+            >
               Burak
             </span>
           </div>
 
           {/* Büyük başlık */}
-          <h1 className="mt-3 text-[72px] leading-[72px] font-bold"
-              style={{ color: "rgb(var(--fg))" }}>
+          <h1
+            className="mt-3 text-[72px] leading-[72px] font-bold"
+            style={{ color: "rgb(var(--fg))" }}
+          >
             {t("hero.title1")} <br /> {t("hero.title2")}
           </h1>
 
           {/* Açıklama */}
-          <p className="mt-4 text-[18px] leading-[28px]"
-             style={{ color: "rgb(var(--muted))" }}>
+          <p
+            className="mt-4 text-[18px] leading-[28px]"
+            style={{ color: "rgb(var(--muted))" }}
+          >
             {t("hero.desc")}
           </p>
 
           {/* Butonlar */}
           <div className="mt-6 flex items-center gap-3">
-            {/* Hire me */}
             <a href="#contact" className="btn btn-fill h-[52px] rounded-[6px]">
               {t("buttons.hire")}
             </a>
 
-            {/* GitHub */}
             <a
               href="https://github.com/burakkgolcuk"
               target="_blank"
@@ -51,7 +56,6 @@ export default function Hero() {
               <span>{t("buttons.github")}</span>
             </a>
 
-            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/burak-g%C3%B6lc%C3%BCk-933b27381/"
               target="_blank"
@@ -66,11 +70,11 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Sağ görsel */}
+        {/* Sağ görsel (ARTIK ABSOLUTE DEĞİL) */}
         <img
           src="/image.png"
           alt="Profile"
-          className="md:absolute md:right-0 md:top-[28px] w-full md:w-[476px] h-[240px] md:h-[375px] object-cover rounded-[18px] shadow-[0_8px_28px_-6px_rgba(24,39,75,0.12),0_18px_88px_-4px_rgba(24,39,75,0.14)]"
+          className="justify-self-end w-full md:w-[476px] h-[240px] md:h-[375px] object-cover rounded-[18px] shadow-[0_8px_28px_-6px_rgba(24,39,75,0.12),0_18px_88px_-4px_rgba(24,39,75,0.14)]"
           loading="lazy"
         />
       </div>
@@ -78,7 +82,6 @@ export default function Hero() {
   );
 }
 
-/* ---- Inline ikonlar (paketsiz) ---- */
 function GitHubIcon({ className = "" }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">

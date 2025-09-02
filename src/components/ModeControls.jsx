@@ -1,53 +1,59 @@
 // src/components/ModeControls.jsx
-import { useTheme } from "../contexts/ThemeContext";
-import { useLang } from "../contexts/LangContext";
+import { useTheme } from "../contexts/ThemeContext.jsx";
+import { useLang } from "../contexts/LangContext.jsx";
 
 export default function ModeControls() {
-  const { theme, setTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const { lang, setLang } = useLang();
-
-  const dark = theme === "dark";
-  const toggleTheme = () => setTheme(dark ? "light" : "dark");
-  const switchLang = () => setLang(lang === "tr" ? "en" : "tr");
+  const isDark = theme === "dark";
+  const langLabel = lang === "tr" ? "ENGLISH" : "TÜRKÇE’YE GEÇ";
 
   return (
-    <div className="flex items-center gap-4 select-none" style={{ color: "#777777" }}>
-      {/* Mor toggle */}
+    <div className="flex items-center gap-4">
+      {/* Dark toggle - Figma'daki görünüm */}
       <button
+        type="button"
         onClick={toggleTheme}
-        aria-label={dark ? "Karanlık tema açık. Aydınlık temaya geç" : "Aydınlık tema açık. Karanlık temaya geç"}
         className="relative w-[55px] h-[24px] rounded-full"
-        style={{ background: "#4731D3" }}
+        aria-pressed={isDark}
+        aria-label="Dark mode"
+        title="Dark mode"
+        style={{ background: "rgb(var(--primary-strong))" }}
       >
-        {/* Sarı daire */}
         <span
-          className="absolute top-[4px] left-[4px] block w-[15px] h-[16px] rounded-full transition-transform"
-          style={{ background: "#FFE86E", transform: dark ? "translateX(31px)" : "translateX(0)" }}
+          className="absolute top-[4px] w-[15px] h-[16px] rounded-full transition-all"
+          style={{ left: isDark ? "35px" : "4px", background: "#FFE86E" }}
         />
-        {/* Pembe nokta (Figma detayı) */}
         <span
-          className="absolute top-[11px] left-[19px] block w-[2px] h-[2px] rounded-full transition-transform"
-          style={{ background: "#E92577", transform: dark ? "translateX(31px)" : "translateX(0)" }}
+          className="absolute"
+          style={{
+            width: "2px",
+            height: "2px",
+            left: isDark ? "50px" : "19px",
+            top: "11px",
+            background: "#E92577",
+          }}
         />
       </button>
 
-      {/* DURUM METNİ (dinamik) */}
-      <span className="uppercase tracking-[0.1em] text-[15px] font-bold">
-  {dark ? "LIGHT MODE’A GEÇ" : "DARK MODE’A GEÇ"}
-</span>
-
-      {/* Dikey çizgi */}
-      <span className="uppercase tracking-[0.1em] text-[15px] font-bold">|</span>
-
-      {/* Dil butonu */}
-      <button
-        onClick={switchLang}
-        className="px-2 py-1 rounded-lg border text-[15px] font-bold uppercase tracking-[0.1em] bg-transparent"
-        style={{ borderColor: "rgb(var(--border))", color: "#4731D3" }}
-        aria-label="Dili değiştir"
-      >
-        {lang === "en" ? "TÜRKÇE’YE GEÇ" : "ENGLISH"}
-      </button>
+      <div className="flex items-center gap-3">
+        <span className="text-[15px] font-bold tracking-[0.1em] select-none" style={{ color: "#777" }}>
+          DARK MODE
+        </span>
+        <span className="text-[15px] font-bold tracking-[0.1em] select-none" style={{ color: "#777" }} aria-hidden>
+          |
+        </span>
+        <button
+          type="button"
+          onClick={() => setLang(lang === "tr" ? "en" : "tr")}
+          className="px-2 py-1 rounded focus:outline-none focus:ring"
+          style={{ color: "rgb(var(--primary))" }}
+          title={lang === "tr" ? "Switch to English" : "Türkçe’ye geç"}
+          aria-label={lang === "tr" ? "Switch to English" : "Türkçe’ye geç"}
+        >
+          {langLabel}
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,59 +1,62 @@
-export default function Profile() {
-  return (
-    <section id="profile" className="mt-[72px]">
-      <div className="container-1140">
-        {/* üst çizgi */}
-        <div className="divider w-full" />
+// src/components/Profile.jsx
+import { useLang } from "../contexts/LangContext.jsx";
 
-        {/* Section başlığı */}
+export default function Profile() {
+  const { t } = useLang();
+
+  return (
+    <section id="profile" className="mt-[64px]">
+      <div className="container-1140 relative">
+        <div
+          className="absolute left-[5px] right-[5px] top-[-32px] h-px"
+          style={{ backgroundColor: "rgb(var(--border))" }}
+        />
         <h2
-          className="mt-[39px] text-[48px] leading-[48px] font-semibold"
+          className="text-[48px] leading-[48px] font-semibold"
           style={{ color: "rgb(var(--fg))" }}
         >
-          Profile
+          {t("sections.profile")}
         </h2>
 
-        {/* 2 kolon */}
-        <div className="mt-[28px] grid grid-cols-1 lg:grid-cols-2 gap-[24px]">
-          {/* Sol kolon */}
-          <div>
+        <div className="mt-[26px] grid md:grid-cols-2 gap-8">
+          {/* Profil kutusu */}
+          <div className="relative">
             <h3
               className="text-[30px] leading-[28px] font-medium"
               style={{ color: "rgb(var(--primary))" }}
             >
-              Profile
+              {t("profile.heading")}
             </h3>
 
-            <dl className="mt-[20px] grid grid-cols-[155px_1fr] gap-y-[8px] text-[18px] leading-[36px]">
-              <dt className="font-semibold" style={{ color: "rgb(var(--fg))" }}>Doğum tarihi</dt>
-              <dd style={{ color: "rgb(var(--fg))" }}>13.02.1992</dd>
-
-              <dt className="font-semibold" style={{ color: "rgb(var(--fg))" }}>İkamet Şehri</dt>
-              <dd style={{ color: "rgb(var(--fg))" }}>Denizli</dd>
-
-              <dt className="font-semibold" style={{ color: "rgb(var(--fg))" }}>Eğitim Durumu</dt>
-              <dd style={{ color: "rgb(var(--fg))" }}>Pamukkale Ünv. Matematik Lisans, 2016</dd>
-
-              <dt className="font-semibold" style={{ color: "rgb(var(--fg))" }}>Tercih Ettiği Rol</dt>
-              <dd style={{ color: "rgb(var(--fg))" }}>Frontend, UI</dd>
-            </dl>
+            <div className="mt-4 grid grid-cols-[1fr_1.2fr] gap-y-2 text-[18px] leading-[36px]">
+              <div className="font-semibold">
+                <div>{t("profile.labels.birth")}</div>
+                <div>{t("profile.labels.city")}</div>
+                <div>{t("profile.labels.education")}</div>
+                <div>{t("profile.labels.role")}</div>
+              </div>
+              <div>
+                <div>{t("profile.values.birth")}</div>
+                <div>{t("profile.values.city")}</div>
+                <div>{t("profile.values.education")}</div>
+                <div>{t("profile.values.role")}</div>
+              </div>
+            </div>
           </div>
 
-          {/* Sağ kolon */}
-          <div>
+          {/* Hakkımda kutusu */}
+          <div className="relative">
             <h3
               className="text-[30px] leading-[28px] font-medium"
               style={{ color: "rgb(var(--primary))" }}
             >
-              About Me
+              {t("about.heading")}
             </h3>
             <p
-              className="mt-[16px] text-[18px] leading-[27px] max-w-[558px]"
+              className="mt-4 text-[18px] leading-[27px]"
               style={{ color: "rgb(var(--muted))" }}
             >
-              Merhaba! Kısa bir biyografi metni burada. Kullanıcı odaklı, ölçeklenebilir
-              arayüzler geliştiriyorum. React, Redux ve modern JS araçlarıyla çalışmayı seviyorum.
-              Ekip içinde iletişime ve temiz koda önem veriyorum.
+              {t("about.body")}
             </p>
           </div>
         </div>
