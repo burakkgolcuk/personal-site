@@ -1,81 +1,90 @@
-Kişisel Web Sitesi — Burak Gölcük
+# Burak Gölcük — Kişisel Web Sitesi
 
-Live Demo: https://personal-site-xi-drab.vercel.app/
+[![Vite](https://img.shields.io/badge/build-Vite-646CFF.svg)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/ui-React-61DAFB.svg)](https://react.dev/)
+[![TailwindCSS](https://img.shields.io/badge/css-Tailwind-38BDF8.svg)](https://tailwindcss.com/)
 
-Kaynak Kod: (bu repo)
+**Live Demo:** https://personal-site-xi-drab.vercel.app/  
+**Kaynak Kod:** (bu repo)
 
-✨ Özellikler
+Kişisel portföyüm. Figma’daki (S12 – alternatif 2) tasarıma birebir uyum, **Dark/Light tema**, **TR/EN dil desteği**, **responsive** düzen, **projeler** bölümü ve **iletişim formu (axios + reqres.in)** içerir.
 
-Vite + React + TailwindCSS ile hızlı ve modern kurulum
+---
 
-Figma’ya birebir uyum (S12 ikinci tasarım — dark mode varyantlı)
-Tasarım referansı: https://www.figma.com/design/YuAwEInBB8GqOO7wNosr5j/s12-design-darkmode?node-id=2-15
+## İçindekiler
 
-Bölümler: Navbar, Hero, Skills, Profile, Projects, Contact, Footer
+- [Özellikler](#özellikler)
+- [Teknolojiler](#teknolojiler)
+- [Kurulum](#kurulum)
+- [Komutlar](#komutlar)
+- [Proje Yapısı](#proje-yapısı)
+- [Dil (i18n) Kullanımı](#dil-i18n-kullanımı)
+- [Tema (Dark/Light)](#tema-darklight)
+- [Projeler Bölümü](#projeler-bölümü)
+- [İletişim Formu (Axios + reqres.in)](#iletişim-formu-axios--reqresin)
+- [Dağıtım (Vercel)](#dağıtım-vercel)
+- [Ekran Görüntüleri](#ekran-görüntüleri)
+- [Değerlendirme Kriterleri Eşlemesi](#değerlendirme-kriterleri-eşlemesi)
+- [İletişim](#iletişim)
 
-Tema & Dil yönetimi (Global Store):
+---
 
-ThemeContext → Light/Dark (tercih localStorage’a yazılır)
+## Özellikler
 
-LangContext → Türkçe / İngilizce (metinler sözlükten, tercih localStorage)
+- 🎨 **Figma’ya Sadık UI** (S12, alternatif 2 – Dark Mode varyantı)
+- 🌓 **Tema**: Dark/Light (tercih LocalStorage’da saklanır)
+- 🌐 **Dil**: Türkçe & İngilizce (Global sözlük + LocalStorage)
+- 📱 **Responsive**: Mobil / Tablet / Masaüstü
+- 🧩 **Bileşen Bazlı Mimari**: Navbar, Hero, Skills, Profile, Projects, Contact, Footer
+- 🔗 **Projeler**: Kart yapısı, teknoloji “pill”leri, GitHub / View Site linkleri
+- 📡 **API Demo**: `axios` ile `https://reqres.in/api/workintech`’e POST (Toastify ile geri bildirim)
+- ♿ **Erişilebilirlik**: Semantik etiketler, net kontrast, klavye ile gezilebilirlik
 
-Responsive (mobil, tablet, masaüstü)
+---
 
-Projeler: Her kartta teknoloji pill’leri + GitHub / View Site linkleri
+## Teknolojiler
 
-API Demo: axios ile https://reqres.in/api/workintech adresine POST (Toastify ile geri bildirim)
+- **Vite** + **React**
+- **TailwindCSS**
+- **Axios**, **React-Toastify**
+- Global durum: **Context API** (Theme & Lang)
+- Figma token’ları: `src/index.css` (CSS değişkenleri)
 
-Erişilebilirlik & UX: semantik etiketler, net kontrast, klavye ile gezinilebilirlik
+---
 
-🧭 İçerik
+## Kurulum
 
-Kurulum
+> Proje **Node 18+** ile test edildi.
 
-Script’ler
-
-Proje Yapısı
-
-Çeviri (i18n) Mantığı
-
-Yeni Proje Kartı Nasıl Eklenir?
-
-Değerlendirme Kriterleri Eşlemesi
-
-Ekran Görüntüleri
-
-Dağıtım (Vercel)
-
-İlgili Proje Linkleri
-
-İletişim
-
-Kurulum
-git clone <bu-repo-url>
+```bash
+git clone <bu-reponun-urlsi>
 cd personal-site
 npm install
 npm run dev
 
 
-Build & local preview:
+
+Build & preview:
 
 npm run build
 npm run preview
 
 
-Proje Node 18+ ile test edildi.
 
-Script’ler
-Komut	Açıklama
-npm run dev	Geliştirme sunucusu (Vite)
-npm run build	Production build
-npm run preview	Build sonrası yerel önizleme
-Proje Yapısı
+| Komut             | Açıklama                     |
+| ----------------- | ---------------------------- |
+| `npm run dev`     | Geliştirme sunucusu (Vite)   |
+| `npm run build`   | Production build             |
+| `npm run preview` | Build sonrası yerel önizleme |
+
+
+
 personal-site/
 ├─ public/
-│  ├─ image.png
-│  ├─ app-pizza.png
-│  ├─ app-movies.png
-│  └─ app-calculator.png
+│  ├─ image.png                # Hero görseli
+│  ├─ app-pizza.png            # Projects: Teknolojik Yemekler
+│  ├─ app-movies.png           # Projects: Witflix (film/watchlist)
+│  └─ app-calculator.png       # Projects: Reducer Calculator
 ├─ src/
 │  ├─ components/
 │  │  ├─ Navbar.jsx
@@ -86,110 +95,83 @@ personal-site/
 │  │  ├─ Contact.jsx
 │  │  └─ Footer.jsx
 │  ├─ contexts/
-│  │  ├─ ThemeContext.jsx
-│  │  └─ LangContext.jsx
+│  │  ├─ ThemeContext.jsx      # dark/light + localStorage
+│  │  └─ LangContext.jsx       # TR/EN sözlük + localStorage
 │  ├─ hooks/
-│  │  └─ useActiveSection.js
+│  │  └─ useActiveSection.js   # aktif nav link için küçük yardımcı
 │  ├─ services/
-│  │  └─ api.js              # axios instance (reqres.in)
+│  │  └─ api.js                # axios instance (reqres.in)
 │  ├─ utils/
 │  │  └─ scrollToId.js
 │  ├─ App.jsx
-│  └─ index.css              # Tailwind + CSS değişkenleri (Figma tokenları)
+│  └─ index.css                # Tailwind + Figma tokenları
 ├─ index.html
 ├─ tailwind.config.js
 └─ postcss.config.js
 
-Çeviri (i18n) Mantığı
 
-Dil durumu LangContext ile globalde tutulur; localStorage’a yazılır.
+Dil (i18n) Kullanımı
 
-Metinler dict.tr ve dict.en altında saklanır.
+Dil yönetimi i18n kütüphanesi olmadan, LangContext.jsx içindeki dict sözlüğü ile yapılır.
 
-Bileşenlerde const { t } = useLang(); ile t("path.to.key") kullanılır.
+Bileşende:
 
-Yeni bir metin eklemek için src/contexts/LangContext.jsx içindeki dict objesine TR/EN karşılıklarını ekleyin, bileşende t("...") ile çağırın.
+import { useLang } from "../contexts/LangContext.jsx";
+const { t, lang, setLang } = useLang();
+<h2>{t("projects.title")}</h2>
 
-Yeni Proje Kartı Nasıl Eklenir?
 
-src/components/Projects.jsx içinde projects dizisine yeni bir obje ekleyin:
+Tema ThemeContext.jsx ile yönetilir, CSS değişkenleri index.css’te tanımlıdır.
+
+Kök elemana .dark sınıfı eklenir/çıkarılır.
+
+Kullanıcı tercihi localStorage’a yazılır.
+
+Figma renkleri :root ve .dark içinde RGB değişken olarak saklanır (örn. --primary).
+
+
+Projeler Bölümü
+
+src/components/Projects.jsx içindeki projects dizisi kartları üretir.
+TR/EN açıklama için nesne kullanılır:
+
 
 {
-  id: "yeni-proje",
-  title: { tr: "Yeni Proje", en: "New Project" },
-  desc: {
-    tr: "Türkçe açıklama...",
-    en: "English description..."
-  },
-  image: "/app-new.png",     // public/app-new.png
-  tech: ["react", "redux"],
-  github: "https://github.com/kullanici/yeni-proje",
-  site: "https://yeni-proje.vercel.app"
+  id: "witflix",
+  title: "Witflix",
+  desc: { tr: "Film kataloğu / watchlist özellikli React projesi.", en: "React movie catalogue with watchlist." },
+  image: "/app-movies.png",
+  tech: ["react", "redux", "axios"],
+  github: "https://github.com/burakkgolcuk/witflix",
+  site: "" // deploy sonrası ekle
 }
 
 
-Görseli public/ klasörüne atın ve image alanına /dosya-adı.png yazın.
+Görseli public/ içine koy, image alanını /dosya.png şeklinde ver.
 
-Linkler (GitHub / View Site) otomatik butonlanır.
+İletişim Formu (Axios + reqres.in)
 
-Değerlendirme Kriterleri Eşlemesi
+Contact.jsx formu api.js (axios instance) üzerinden POST atar:
 
-UI & Semantik HTML & CSS (2, %12): Figma’ya sadık, semantik section/heading yapısı, Tailwind yardımıyla tipografi/spacing hizaları.
+POST https://reqres.in/api/workintech
 
-Responsive & Dark Mode (3, %15): Grid/flex ile tüm breakpoint’lerde bozulmadan çalışır. Tema ThemeContext + CSS değişkenleriyle yönetilir.
 
-Component & map (4, %7): Skills/Projects gibi listelerde map kullanımı, küçük ve öz bileşenler.
+Başarı/Hata durumları React-Toastify ile bildirilir.
 
-State/Props/Veri Akışı (5, %8): Context + props akışı net; tek yönlü veri akışı korunur.
+Gönderilen payload: name, email, message, lang, dt
 
-Axios ile API (6, %7): Contact formu reqres.in’e POST atar; Toastify ile durum bildirimi.
 
-Ek Kütüphaneler (7, %10): TailwindCSS, React-Toastify, Axios entegrasyonu.
 
-LocalStorage (8, %8): Tema ve dil tercihleri persist edilir.
-
-Global Store (9, %25): Context API ile global state; performans/erişilebilirlik odakları.
-
-Yayınlama (10, %4): Vercel üzerinde canlı (link aşağıda).
-
-Ekran Görüntüleri
-
-/public/screens/ içine alıp README’de göster:
-
-![Hero](public/screens/hero.png)
-![Projects](public/screens/projects.png)
 
 Dağıtım (Vercel)
 
-Vercel hesabına giriş → New Project
+Vercel
+ → New Project
 
-GitHub reposunu seç → Build Command: npm run build, Output: dist
+GitHub reposunu seç
 
-Deploy!
+Build Command: npm run build — Output: dist
+
+Deploy → Live: https://personal-site-xi-drab.vercel.app/
+
 İsteğe bağlı: Custom domain bağlayabilirsin.
-
-İlgili Proje Linkleri
-
-Witflix (Film kataloğu / watchlist)
-GitHub: https://github.com/burakkgolcuk/witflix
-
-Live: (varsa ekleyin)
-
-Teknolojik Yemekler (Pizza sipariş uygulaması)
-GitHub: (kendi repo linkin)
-Live: (varsa ekleyin)
-
-Reducer Calculator (useReducer ile hesap makinesi)
-GitHub: https://github.com/burakkgolcuk/reducer-calculator
-
-Live: (varsa ekleyin)
-
-Portföydeki Projects kartlarındaki linkler de bu URL’lere işaret ediyor.
-
-İletişim
-
-E-posta: burakkgolcuk@gmail.com
-
-GitHub: https://github.com/burakkgolcuk
-
-LinkedIn: https://www.linkedin.com/in/burak-g%C3%B6lc%C3%BCk-933b27381/
